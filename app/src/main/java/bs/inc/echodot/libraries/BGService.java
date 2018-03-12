@@ -41,7 +41,7 @@ public class BGService extends Service {
     int mSignalStrength=0;
     String[] PERMISSIONS = {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_SMS, Manifest.permission.INTERNET};
     TelephonyManager Tel,telephonyManager;
-    PhoneCustomStateListener2 MyListener;
+     PhoneCustomStateListener2 MyListener;
     String carrierName="",carrierNetwork="";
     int carrierlang=0,carrierlong=0,carriercid=0,mcc=0,mnc=0;
     double mlat=0,mlang=0,malt=0,mspeed=0;

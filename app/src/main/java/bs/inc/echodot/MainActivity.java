@@ -216,12 +216,14 @@ public class MainActivity extends AppCompatActivity {
                             messageMap.put("CQI", ((CellInfoLte) cellInfo).getCellSignalStrength().getCqi());
                             messageMap.put("RSRQ", ((CellInfoLte) cellInfo).getCellSignalStrength().getRsrq());
                             messageMap.put("RSSNR", ((CellInfoLte) cellInfo).getCellSignalStrength().getRssnr());
+                            messageMap.put("TimingAdvance",TimingAdvance);
                         }
                     }
                 }
 
                 signalStrengthDbm = getSignalStrengthByName(signalStrength, "getDbm");
                 speedView.speedTo(Math.abs(signalStrengthDbm));
+
 
 
                 signalStrengthAsuLevel = getSignalStrengthByName(signalStrength, "getAsuLevel");
@@ -262,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
                 currentSignalView.setText("Carrier: " + carrierName +
                         "\nDBM: " + String.valueOf(signalStrengthDbm) +
                         "\nASU:" + String.valueOf(signalStrengthAsuLevel) +
@@ -274,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
                         "\nMNC: " + mnc +
                         "\nMyLatitude: " + mlat +
                         "\nMyLongitute: " + mlang +
-                        "\nTiming Adbance: "+TimingAdvance
+                        "\nTiming Advance: "+TimingAdvance
                 );
 
                 messageMap.put("Carrier",carrierName );
@@ -289,6 +292,8 @@ public class MainActivity extends AppCompatActivity {
                 messageMap.put("MyLatitude",mlat );
                 messageMap.put("MyLongitude",mlang );
                 messageMap.put("Time", ServerValue.TIMESTAMP);
+                messageMap.put("TimingAdvance",TimingAdvance);
+
 
                 DatabaseReference fireDB = FirebaseDatabase.getInstance().getReference().child("Signals");
                 String push_id= fireDB.push().getKey();
